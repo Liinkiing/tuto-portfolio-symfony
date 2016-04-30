@@ -122,7 +122,7 @@ d'applications très complexes, nous pourrions avoir le besoin de plusieurs bund
 
 Lorsque l'assistant vous demande donc la notation raccourcie de votre entité, sous la forme **\<NomDuBundle>:\<NomDeLentite>**, vous pouvez taper **AppBundle:Project** (par défaut, un Bundle nommé **App** est déjà crée)
 **Si vous avez à ce moment là, une erreur de type PDOException, c'est que vous n'avez pas configuré votre base de données dans le fichier [parameters.yml](app/config/parameters.yml), car afin de créer l'entité, Doctrine a besoin de se
-créer à la base de données**
+connecter à la base de données**
 
 On vous demande ensuite le type de format que vous voulez utilisez (par défaut, ce qui est entre crochet est déjà sélectionné, donc si vous êtes d'accord avec le choix par défaut, tapez juste sur Entrer). Nous utiliserons le format
 par défaut, qui sont les annotations (c'est à dire que nos informations à propos des attributs Doctrine seront directement stockés dans le fichier PHP correspondant à l'entité). Par défaut, l'assistant créer automatiquement un champs
