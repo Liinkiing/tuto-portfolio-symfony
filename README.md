@@ -308,7 +308,7 @@ Le `@var User` est totalement facultatif. Il permet d'indiquer à votre IDE le t
 
 Le `@ORM\ManyToOne` est enfait une classe, que vous devez au préalablement importer, si votre IDE ne l'a pas fait automatiquement.
 
-`targentEntity` permet d'indiquer l'extrémité de la relation, c'est à dire avec quelle entité nous créons la relation, et le `inversedBy`, qui est toujours dans l'entité propriétaire, permet d'indiquer la relation inverse. 
+`targetEntity` permet d'indiquer l'extrémité de la relation, c'est à dire avec quelle entité nous créons la relation, et le `inversedBy`, qui est toujours dans l'entité propriétaire, permet d'indiquer la relation inverse. 
 
 Il faut donc aussi créer cette relation **projects**, qui sera contenu
 dans [src/AppBundle/Entity/User.php](src/AppBundle/Entity/User.php).
