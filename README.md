@@ -72,7 +72,8 @@ On vous demande ensuite le type de format que vous voulez utilisez (par défaut,
 par défaut, qui sont les annotations (c'est à dire que nos informations à propos des attributs Doctrine seront directement stockés dans le fichier PHP correspondant à l'entité). Par défaut, l'assistant créer automatiquement un champs
 **id**, vous n'avez donc pas à vous en préoccuper
 
-Laissez vous donc guider par l'assistant, il est très intuitif. 
+Laissez vous donc guider par l'assistant, il est très intuitif.
+
 *A savoir : Si vous (et ce que vous devez essayer de faire un maximum) respectez les conventions de nommages, en terminant un nom d'attribut par la valeur '\_at', l'assistant va automatiquement reconnaître qu'il s'agit d'un
 type Datetime, pareil si vous commencez votre nom par 'is\_', il le mettra en booléen*
 
