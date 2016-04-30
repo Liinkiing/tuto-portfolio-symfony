@@ -77,7 +77,7 @@ Laissez vous donc guider par l'assistant, il est très intuitif.
 *A savoir : Si vous (et ce que vous devez essayer de faire un maximum) respectez les conventions de nommages, en terminant un nom d'attribut par la valeur '\_at', l'assistant va automatiquement reconnaître qu'il s'agit d'un
 type Datetime, pareil si vous commencez votre nom par 'is\_', il le mettra en booléen*
 
-Voici mon fichier [src/AppBundle/Entity/Project.php](Project.php)
+Voici mon fichier [Project.php](src/AppBundle/Entity/Project.php)
 
 ```php
 <?php
