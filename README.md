@@ -47,6 +47,59 @@ Une dernière chose avant de vouloir créer l'entité. Il faut tout d'abord déf
 En plus de ces **attibuts**, on y ajoutera systématiquement (ou presque), des champs **created_at** et **edited_at**. Une fois de plus, il ne s'agit pas d'une règle, mais de bonnes pratiques à respecter. De plus, avoir en base
 la date de création d'un projet est très utile, notamment pour trier par ordre du plus récent au plus ancien par exemple.
 
+#### Créer l'entité sans le CLI
+
+Commencez tout d'abord par créer un fichier dans le dossier [src/AppBundle/Entity](src/AppBundle/Entity). Renommez le en **Project.php**
+
+```php
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Project
+ *
+ * @ORM\Table(name="project")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
+ */
+class Project
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    ...
+    
+```
+
+Commencez donc par importer l'espace de nom via le `use Doctrine\ORM\Mapping as ORM;`.
+
+Ensuite, au dessus du nom de votre classe, doivent être présents le `@ORM\Table(name="project")` et le `@ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")`
+Le **@ORM\Table** permet d'indiquer à Doctrine le nom de la table associé à cette entité. On utilise donc la propriété **name="project"**.
+Quant au **@ORM\Entity**, il permet d'indiquer diverses propriétés relatives à cette entité. Ici, il définit quel est le **Repository** associé à cette classe (je n'aborderai pas ici la notion de Repository, n'hésitez pas à lire [la documentation](http://symfony.com/doc/current/book/doctrine.html#custom-repository-classes) si cela vous intéresse !)
+
+Ensuite, vous devez, pour chaque champs que vous voulez ajouter à votre entité, définir un attribut en php, puis au dessus l'annoter.
+**@ORM\Column** va permettre d'indiquer plusieurs paramètres pour la colonne (champs) que vous êtes entrain d'ajouter, tel que son type, son nom, sa taille, si elle est nulle etc...
+**@ORM\Id** est utilisé pour les champs qui doivent être reconnus en tant qu'identifiant
+**@ORM\GeneratedValue(strategy="AUTO"** correspond à l'**AUTO_INCREMENT** en SQL. C'est à dire que ce champs va incrémenter de 1 à chaque nouvel ajout en base.
+
 #### Générer l'entité via le CLI (Commande Line Interface)
 
 ```
