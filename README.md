@@ -32,8 +32,8 @@ Une fois tout cela configuré, passons tout d'abord à la configuration de l'ent
 Par défaut, Symfony utilise l'ORM Doctrine. Il est donc déjà prêt à l'emploi après que vous ayez utilisé la commande **php symfony new \<app_name\>**.
 
 Une fois de plus, vous disposez de plusieurs manières pour créer cette dites entité. Je vous conseille, lorsque vous commencez à développer sous Symfony, de les créer manuellement vous même, en créant un fichier dans le répértoire
-[src/AppBundle/](src/AppBundle/). La convention veut que, généralement, le nom de fichier d'une entité est au singulier. Donc pour un projet dans un portfolio, le fichier s'appellera **Project.php** et se situera donc dans
-[src/AppBundle/Project.php](src/AppBundle/Project.php).
+[src/AppBundle/Entity](src/AppBundle/Entity). La convention veut que, généralement, le nom de fichier d'une entité est au singulier. Donc pour un projet dans un portfolio, le fichier s'appellera **Project.php** et se situera donc dans
+[src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Project.php).
 
 Une dernière chose avant de vouloir créer l'entité. Il faut tout d'abord définir quelles informations voulez vous qu'un projet contienne. Par exemple :
 
