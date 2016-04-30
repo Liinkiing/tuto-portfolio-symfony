@@ -76,7 +76,7 @@ Laissez vous donc guider par l'assistant, il est très intuitif.
 *A savoir : Si vous (et ce que vous devez essayer de faire un maximum) respectez les conventions de nommages, en terminant un nom d'attribut par la valeur '\_at', l'assistant va automatiquement reconnaître qu'il s'agit d'un
 type Datetime, pareil si vous commencez votre nom par 'is\_', il le mettra en booléen*
 
-Voici mon fichier [src/Entity/Project.php]()
+Voici mon fichier [src/Entity/Project.php](src/Entity/Project.php)
 
 ```php
 <?php
@@ -231,7 +231,7 @@ Dans une relation, il y a toujours une entité dites **Propriétaire** et une re
 Si vous avez quelques notions de SGBDR, cela va vous paraître plus simple : La table propriétaire est celle qui contient la référence à la clé étrangère de l'autre entité. Donc dans la table **Project**, nous
 aurions un attribut **user_id** qui ferait référence à notre auteur, dans la table **User**.
 
-Dans votre entité [src/AppBundle/Entity/Project.php](), rajoutez un attribut **$author**, et ces annoations correspondantes ::
+Dans votre entité [src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Project.php), rajoutez un attribut **$author**, et ces annoations correspondantes ::
 
 ```php
     use Doctrine\ORM\Mapping as ORM;
@@ -281,7 +281,58 @@ Une fois ces attributs rajoutés, pensez aussi à rajouter les getter et les set
 
 #### L'entité Category
 
+Pour nos catégories, nous voulons le comportement suivant : Un projet peut appartenir à plusieurs catégories. Cela signifie que plusieurs catégories pourront appartenir à plusieurs projets.
 
+Il s'agit donc d'une relation **n à n**, ou **ManyToMany** sur Doctrine. Vous devriez donc rajouter un nouvel attribut dans [src/AppBundle/Entity/Category.php]() et dans [src/AppBundle/Entity/Project.php]()
+
+**Category.php**
+
+```php
+    /**
+     * @var Project[]
+     * 
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Project", mappedBy="categories")
+     */
+     
+    private $projects;
+
+```
+
+**Project.php**
+
+```php
+    /**
+     * @var Category[]
+     * 
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category", inversedBy="projects")
+     */
+     
+    private $categories;
+
+```
+
+Une fois ces modifications ajoutées, il est temps de réellement appliquer ces changements en base. Une fois de plus, le CLI de Symfony nous fournit une commande toute prête :
+
+`php bin/console doctrine:schema:update \[-f | --dump-sql\]`
+
+Afin que les reqûetes SQL soient réellement effectués, vous devez exécuter la commande avec le paramètre -f (**force**). Si vous voulez aussi voir ce que Doctrine réalise comme requêtes, ajoutez le paramètre --dump-sql.
+
+![](http://puu.sh/oBBwl/28408fea10.png)
+
+N'oubliez pas de réexécuter la commande `php bin/console doctrine:generate:entities <BundleName>` afin de générer les getters et les setters des attributs que vous venez de rajouter.
+
+Une fois tout cela fait, votre système est normalement prêt, vous n'aurez plus qu'à mettre en forme tout cela, faire un simple CRUD afin de gérer les projets etc...
+
+Voici un petit exemple sur comment vous devriez ajouter un nouveau projet par exemple : 
+
+![](http://puu.sh/oBCIp/d2a21f735e.png)
+
+Grâce à Doctrine, ajouter un projet est fait d'une manière totalement orientée objet ! 
+Ensuite, un petit aperçu sur comment récupérer ce projet sur Twig :
+
+![](http://puu.sh/oBCYK/a35ece3ca6.png)
+
+J'espère que le tutoriel est assez compéhensif. N'hésitez pas à clone le projet, le fork etc...
 
 
 

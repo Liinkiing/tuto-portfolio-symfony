@@ -28,6 +28,13 @@ class Category
      */
     private $name;
 
+    /**
+     * @var Project[]
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Project", mappedBy="categories")
+     */
+    private $projects;
+
 
     /**
      * Get id
@@ -61,5 +68,46 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add project
+     *
+     * @param \AppBundle\Entity\Project $project
+     *
+     * @return Category
+     */
+    public function addProject(\AppBundle\Entity\Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Remove project
+     *
+     * @param \AppBundle\Entity\Project $project
+     */
+    public function removeProject(\AppBundle\Entity\Project $project)
+    {
+        $this->projects->removeElement($project);
+    }
+
+    /**
+     * Get projects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
     }
 }
