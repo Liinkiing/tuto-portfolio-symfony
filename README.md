@@ -33,7 +33,7 @@ Par défaut, Symfony utilise l'ORM Doctrine. Il est donc déjà prêt à l'emplo
 
 Une fois de plus, vous disposez de plusieurs manières pour créer cette dites entité. Je vous conseille, lorsque vous commencez à développer sous Symfony, de les créer manuellement vous même, en créant un fichier dans le répértoire
 [src/AppBundle/](src/AppBundle/). La convention veut que, généralement, le nom de fichier d'une entité est au singulier. Donc pour un projet dans un portfolio, le fichier s'appellera **Project.php** et se situera donc dans
-[src/AppBundle/Project.php]().
+[src/AppBundle/Project.php](src/AppBundle/Project.php).
 
 Une dernière chose avant de vouloir créer l'entité. Il faut tout d'abord définir quelles informations voulez vous qu'un projet contienne. Par exemple :
 
@@ -251,7 +251,7 @@ Le `@var User` est totalement facultatif. Il permet d'indiquer à votre IDE le t
 Le `@ORM\ManyToOne` est enfait une classe, que vous devez au préalablement importer, si votre IDE ne l'a pas fait automatiquement.
 `targentEntity` permet d'indiquer l'extrémité de la relation, c'est à dire avec quelle entité nous créons la relation, et le `inversedBy`, qui est toujours dans l'entité propriétaire, permet d'indiquer la relation inverse. 
 Il faut donc aussi créer cette relation **projects**, qui sera contenu
-dans [src/AppBundle/Entity/User.php]().
+dans [src/AppBundle/Entity/User.php](src/AppBundle/Entity/User.php).
 
 
 ```php
@@ -283,7 +283,7 @@ Une fois ces attributs rajoutés, pensez aussi à rajouter les getter et les set
 
 Pour nos catégories, nous voulons le comportement suivant : Un projet peut appartenir à plusieurs catégories. Cela signifie que plusieurs catégories pourront appartenir à plusieurs projets.
 
-Il s'agit donc d'une relation **n à n**, ou **ManyToMany** sur Doctrine. Vous devriez donc rajouter un nouvel attribut dans [src/AppBundle/Entity/Category.php]() et dans [src/AppBundle/Entity/Project.php]()
+Il s'agit donc d'une relation **n à n**, ou **ManyToMany** sur Doctrine. Vous devriez donc rajouter un nouvel attribut dans [src/AppBundle/Entity/Category.php](src/AppBundle/Entity/Category.php) et dans [src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Project.php)
 
 **Category.php**
 
@@ -313,7 +313,7 @@ Il s'agit donc d'une relation **n à n**, ou **ManyToMany** sur Doctrine. Vous d
 
 Une fois ces modifications ajoutées, il est temps de réellement appliquer ces changements en base. Une fois de plus, le CLI de Symfony nous fournit une commande toute prête :
 
-`php bin/console doctrine:schema:update \[-f | --dump-sql\]`
+`php bin/console doctrine:schema:update [-f | --dump-sql]`
 
 Afin que les reqûetes SQL soient réellement effectués, vous devez exécuter la commande avec le paramètre -f (**force**). Si vous voulez aussi voir ce que Doctrine réalise comme requêtes, ajoutez le paramètre --dump-sql.
 
