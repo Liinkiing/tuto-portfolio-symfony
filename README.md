@@ -249,8 +249,11 @@ Dans votre entité [src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Proje
 ```
 
 Le `@var User` est totalement facultatif. Il permet d'indiquer à votre IDE le type de retour de cet attribut. 
+
 Le `@ORM\ManyToOne` est enfait une classe, que vous devez au préalablement importer, si votre IDE ne l'a pas fait automatiquement.
+
 `targentEntity` permet d'indiquer l'extrémité de la relation, c'est à dire avec quelle entité nous créons la relation, et le `inversedBy`, qui est toujours dans l'entité propriétaire, permet d'indiquer la relation inverse. 
+
 Il faut donc aussi créer cette relation **projects**, qui sera contenu
 dans [src/AppBundle/Entity/User.php](src/AppBundle/Entity/User.php).
 
@@ -271,8 +274,7 @@ dans [src/AppBundle/Entity/User.php](src/AppBundle/Entity/User.php).
 Notez bien la différence ici : on utilise une relation **OneToMany**, car nous somme dans l'entité inverse. **UN** auteur peut avoir fait **PLUSIEURS** projets.
 Le `mappedBy` est la même chose qu'**inversedBy**, mais dans l'entité inverse.
 
-Pour faire plus simple, en général, le inversedBy fait référence à l'attribut dans la targetEntity (donc User) qui a la relation **OneToMany**, et le mappedBy fait référence à l'attribut dans la targetEntity (donc Project)
-qui a la relation **ManyToOne**.
+Pour faire plus simple, en général, le inversedBy fait référence à l'attribut dans la targetEntity (donc User) qui a la relation **OneToMany**, et le mappedBy fait référence à l'attribut dans la targetEntity (donc Project) qui a la relation **ManyToOne**.
 
 Ces notions de propriétaire et d'inverse peuvent être parfois difficile à appréhender, mais plus vous ferez de simples exemples, plus vous comprendrez ces notions.
 
