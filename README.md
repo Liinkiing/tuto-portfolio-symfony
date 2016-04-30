@@ -64,7 +64,7 @@ Vous vous demandez sûrement ce à quoi correspond un **Bundle** ? Il s'agit d'u
 de fichiers (PHP, Javascript, CSS, images...). On pourrait les comparer à des plugins, car un Bundle contient généralement un module pour une application. Dans le cas de notre application, un seule bundle suffira, mais dans le cas
 d'applications très complexes, nous pourrions avoir le besoin de plusieurs bundles : un pour le blog, un pour l'adminisatration... La [documentation de Symfony](http://symfony.com/doc/current/book/bundles.html#page-creation-bundles) est très claire sur le sujet.
 
-Lorsque l'assistant vous demande donc la notation raccourcie de votre entité, sous la forme **<NomDuBundle>:<NomDeLentite>**, vous pouvez taper **AppBundle:Project** (par défaut, un Bundle nommé **App** est déjà crée)
+Lorsque l'assistant vous demande donc la notation raccourcie de votre entité, sous la forme **\<NomDuBundle>:\<NomDeLentite>**, vous pouvez taper **AppBundle:Project** (par défaut, un Bundle nommé **App** est déjà crée)
 **Si vous avez à ce moment là, une erreur de type PDOException, c'est que vous n'avez pas configuré votre base de données dans le fichier [parameters.yml](app/config/parameters.yml), car afin de créer l'entité, Doctrine a besoin de se
 créer à la base de données**
 
