@@ -370,6 +370,8 @@ Il s'agit donc d'une relation **n à n**, ou **ManyToMany** sur Doctrine. Vous d
 
 ```
 
+N'oubliez pas de réexécuter la commande `php bin/console doctrine:generate:entities <BundleName>` afin de générer les getters et les setters des attributs que vous venez de rajouter.
+
 Une fois ces modifications ajoutées, il est temps de réellement appliquer ces changements en base. Une fois de plus, le CLI de Symfony nous fournit une commande toute prête :
 
 `php bin/console doctrine:schema:update [-f | --dump-sql]`
@@ -377,8 +379,6 @@ Une fois ces modifications ajoutées, il est temps de réellement appliquer ces 
 Afin que les reqûetes SQL soient réellement effectués, vous devez exécuter la commande avec le paramètre -f (**force**). Si vous voulez aussi voir ce que Doctrine réalise comme requêtes, ajoutez le paramètre --dump-sql.
 
 ![](http://puu.sh/oBBwl/28408fea10.png)
-
-N'oubliez pas de réexécuter la commande `php bin/console doctrine:generate:entities <BundleName>` afin de générer les getters et les setters des attributs que vous venez de rajouter.
 
 Une fois tout cela fait, votre système est normalement prêt, vous n'aurez plus qu'à mettre en forme tout cela, faire un simple CRUD afin de gérer les projets etc...
 
