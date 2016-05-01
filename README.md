@@ -288,7 +288,7 @@ Dans une relation, il y a toujours une entité dites **Propriétaire** et une re
 Si vous avez quelques notions de SGBDR, cela va vous paraître plus simple : La table propriétaire est celle qui contient la référence à la clé étrangère de l'autre entité. Donc dans la table **Project**, nous
 aurions un attribut **user_id** qui ferait référence à notre auteur, dans la table **User**.
 
-Dans votre entité [src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Project.php), rajoutez un attribut **$author**, et ces annoations correspondantes ::
+Dans votre entité [src/AppBundle/Entity/Project.php](src/AppBundle/Entity/Project.php), rajoutez un attribut **$author**, et ces annotations correspondantes :
 
 ```php
     use Doctrine\ORM\Mapping as ORM;
