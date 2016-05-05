@@ -18,7 +18,7 @@ php symfony new <app_name>
 Je vous conseille de créer d'abord la base de données, une fois pour toute. Je vais ici utiliser **Uwamp** et **PHPMyAdmin** afin de le faire rapidement.
 Utilisez ce que vous désirez afin de créer votre base de données.
 
-Une fois la base de données crée, je vous recommande d'aller directement dans le fichier [parameters.yml](app/config/parameters.yml) et de modifier les informations relatives à votre base de données
+Une fois la base de données créée, je vous recommande d'aller directement dans le fichier [parameters.yml](app/config/parameters.yml) et de modifier les informations relatives à votre base de données
 
 #### /!\ ATTENTION /!\
 Pensez bien, lorsque vous désirerez mettre en production votre application, ou encore la mettre en ligne sur un dépôt Github, de bien inclure dans votre fichier [.gitignore](.gitignore) ce fichier [parameters.yml](app/config/parameters.yml), 
