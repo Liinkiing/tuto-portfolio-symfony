@@ -11,7 +11,7 @@
                 <div>
                     <p>{{ project.description }}</p>
                 </div>
-                <p>{{ project.author.username }}</p>
+                <p>{{ project.author.username | default('default user') }}</p>
             </div>
         </div>
     {% endblock %}
