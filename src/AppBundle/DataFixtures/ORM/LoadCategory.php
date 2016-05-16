@@ -8,10 +8,10 @@ use AppBundle\Entity\Category;
 
 class LoadCategory implements FixtureInterface
 {
-    // Dans l'argument de la m�thode load, l'objet $manager est l'EntityManager
+    // Dans l'argument de la méthode load, l'objet $manager est l'EntityManager
     public function load(ObjectManager $manager)
     {
-        // Liste des noms de cat�gorie � ajouter
+        // Liste des noms de catégorie à ajouter
         $names = array(
             'Développement web',
             'Développement mobile',
@@ -23,7 +23,7 @@ class LoadCategory implements FixtureInterface
         );
 
         foreach ($names as $name) {
-            // On cr�e la cat�gorie
+        // On crée la catégorie
             $category = new Category();
             $category->setName($name);
 
@@ -31,7 +31,7 @@ class LoadCategory implements FixtureInterface
             $manager->persist($category);
         }
 
-        // On d�clenche l'enregistrement de toutes les cat�gories
+        // On déclenche l'enregistrement de toutes les catégories
         $manager->flush();
     }
 }
