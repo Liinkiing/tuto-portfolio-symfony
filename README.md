@@ -42,7 +42,7 @@ Une dernière chose avant de vouloir créer l'entité. Il faut tout d'abord déf
 * Une image à la une
 * Un auteur
 * Les plateformes sur lesquelles est disponible le projet
-* Le/les catégories
+* La/les catégories
 
 En plus de ces **attibuts**, on y ajoutera systématiquement (ou presque), des champs **created_at** et **edited_at**. Une fois de plus, il ne s'agit pas d'une règle, mais de bonnes pratiques à respecter. De plus, avoir en base
 la date de création d'un projet est très utile, notamment pour trier par ordre du plus récent au plus ancien par exemple.
